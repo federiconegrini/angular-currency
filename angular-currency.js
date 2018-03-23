@@ -65,3 +65,4 @@ angular.module('bckrueger.angular-currency', [])
 		};
 	}
 }]);
+module.exports='bckrueger.angular-currency';

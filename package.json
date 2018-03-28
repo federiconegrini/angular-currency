@@ -20,7 +20,7 @@
     "lint": "eslint angular-currency.js"
   },
   "devDependencies": {
-    "angular": "5.8",
+    "angular": "1.5.8",
     "angular-mocks": "^1.5.0-beta.0",
     "chai": "^3.3.0",
     "eslint": "^1.6.0",
@@ -33,7 +33,7 @@
     "sinon": "^1.17.1"
   },
   "dependencies": {
-    "angular": "5.8",
+    "angular": "1.5.8",
     "autonumeric": "4.1"
   }
 }

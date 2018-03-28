@@ -21,18 +21,20 @@ angular.module('bckrueger.angular-currency', [])
 	
 	function compile(tElem, tAttrs) {
 		var isInputText = tElem.is('input:text');
-
+		
 		return function(scope, elem, attrs, controller) {
+			
+			var autoElem = new AutoNumeric(elem, scope.angularCurrency);
+			
 			var updateElement = function (newVal) {
 				if (!isNaN(parseFloat(newVal)) && isFinite(newVal)) {
-					elem.autoNumeric('set', newVal);
+					autoElem.set(newVal);
 				}
 			};
 			
-			elem.autoNumeric('init', scope.angularCurrency);
 			if (scope.variableOptions === true) {
 				scope.$watch('angularCurrency', function(newValue) {
-					elem.autoNumeric('update', newValue);
+					autoElem.update(newValue);
 				});
 			}
 
@@ -47,12 +49,12 @@ angular.module('bckrueger.angular-currency', [])
 
 				elem.on('keyup', function () {
 					scope.$applyAsync(function () {
-						controller.$setViewValue(elem.autoNumeric('get'));
+						controller.$setViewValue(autoElem.getNumericString());
 					});
 				});
 				elem.on('change', function () {
 					scope.$applyAsync(function () {
-						controller.$setViewValue(elem.autoNumeric('get'));
+						controller.$setViewValue(autoElem.getNumericString());
 					});
 				});
 			} else {

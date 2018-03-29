@@ -4,6 +4,7 @@
  * License: MIT
  */
 
+var AutoNumeric = require('autonumeric'); 
 
 angular.module('bckrueger.angular-currency', [])
 .directive('angularCurrency', [function () {

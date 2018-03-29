@@ -24,7 +24,7 @@ angular.module('bckrueger.angular-currency', [])
 		
 		return function(scope, elem, attrs, controller) {
 			
-			var autoElem = new AutoNumeric(elem, scope.angularCurrency);
+			var autoElem = new AutoNumeric(elem[0], scope.angularCurrency);
 			
 			var updateElement = function (newVal) {
 				if (!isNaN(parseFloat(newVal)) && isFinite(newVal)) {

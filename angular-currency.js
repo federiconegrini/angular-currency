@@ -47,12 +47,12 @@ angular.module('bckrueger.angular-currency', [])
 					updateElement(controller.$viewValue);
 				};
 
-				elem.on('keyup', function () {
+				elem[0].on('keyup', function () {
 					scope.$applyAsync(function () {
 						controller.$setViewValue(autoElem.getNumericString());
 					});
 				});
-				elem.on('change', function () {
+				elem[0].on('change', function () {
 					scope.$applyAsync(function () {
 						controller.$setViewValue(autoElem.getNumericString());
 					});

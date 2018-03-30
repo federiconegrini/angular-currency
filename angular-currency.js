@@ -61,6 +61,13 @@ angular.module('bckrueger.angular-currency', []).directive('angularCurrency', [
               controller.$setViewValue(autoElem.getNumericString());
             });
           });
+          elem[0].on('click', function() {
+            scope.$applyAsync(function() {
+              if(autoElem.getNumericString() === '€0,00') {
+                controller.$setViewValue('');
+              }
+            });
+          });
         } else {
           if (isInputText) {
             attrs.$observe('value', function(val) {

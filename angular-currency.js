@@ -48,7 +48,11 @@ angular.module('bckrueger.angular-currency', []).directive('angularCurrency', [
           };
 
           controller.$parsers.push(function() {
-            return autoElem.getNumber();
+            if(autoElem.getNumber() === 0) {
+              return '';
+            } else {
+              return autoElem.getNumber();
+            }
           });
 
           elem[0].on('keyup', function() {
@@ -59,13 +63,6 @@ angular.module('bckrueger.angular-currency', []).directive('angularCurrency', [
           elem[0].on('change', function() {
             scope.$applyAsync(function() {
               controller.$setViewValue(autoElem.getNumericString());
-            });
-          });
-          elem[0].on('click', function() {
-            scope.$applyAsync(function() {
-              if(autoElem.getNumericString() === '€0,00') {
-                controller.$setViewValue('');
-              }
             });
           });
         } else {
